@@ -39,7 +39,7 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 
 // 3. Validación y Conexión con Supabase para Invitados
-document.addEventListener("DOMContentLoaded", async function() {
+document.addEventListener("DOMContentLoaded", async function () {
   const urlParams = new URLSearchParams(window.location.search);
   const codigoInvitado = urlParams.get('invitado');
 
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     // 4. Manejar el envío del formulario RSVP conectado a Supabase
     if (rsvpForm) {
-      rsvpForm.addEventListener('submit', async function(e) {
+      rsvpForm.addEventListener('submit', async function (e) {
         e.preventDefault();
 
         const selectedGuest = document.querySelector('input[name="guests"]:checked');
@@ -140,9 +140,9 @@ document.addEventListener("DOMContentLoaded", async function() {
         // Actualizar el estado en Supabase a 'Confirmado'
         const { error: updateError } = await supabase
           .from('invitados')
-          .update({ 
-            estado: 'Confirmado', 
-            acompaniantes: count 
+          .update({
+            estado: 'Confirmado',
+            acompaniantes: count
           })
           .eq('codigo', codigoInvitado.toLowerCase());
 
@@ -185,7 +185,7 @@ const equalizer = document.getElementById('equalizer');
 let isPlaying = false;
 
 if (musicBtn && bgMusic) {
-  musicBtn.addEventListener('click', function() {
+  musicBtn.addEventListener('click', function () {
     if (isPlaying) {
       bgMusic.pause();
       musicBtnText.innerText = "Reproducir Música";
@@ -210,12 +210,12 @@ const yapeNumber = "981995393";
 const copyBadge = document.getElementById('copy-badge');
 
 if (envelopeWrapper) {
-  envelopeWrapper.addEventListener('click', function() {
+  envelopeWrapper.addEventListener('click', function () {
     this.classList.toggle('open');
-    
+
     if (this.classList.contains('open')) {
       envelopeHint.innerText = "✨ Toca para cerrar el sobre";
-      
+
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(yapeNumber).then(() => {
           showCopyFeedback();
