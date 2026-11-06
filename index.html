@@ -195,6 +195,24 @@
         <p class="text-2xl sm:text-3xl text-[#D4AF37] font-serif-luxury tracking-widest uppercase">
           César Jhair
         </p>
+
+        <!-- Botón Reproductor de Música con Ecualizador Animado -->
+      <div data-aos="fade-up" data-aos-duration="1200" class="mt-4 relative z-10">
+        <button id="music-btn" type="button"
+          class="px-7 py-3 bg-[#0a0e17] hover:bg-[#111726] text-[#D4AF37] border border-[#D4AF37]/35 transition-all text-xs tracking-[0.2em] uppercase font-semibold flex items-center gap-3 cursor-pointer shadow-lg active:scale-95">
+          <i data-lucide="music" class="w-4 h-4 text-[#D4AF37]"></i>
+          <span id="music-btn-text">Reproducir Música</span>
+
+          <!-- Contenedor del Ecualizador Animado -->
+          <div id="equalizer" class="flex items-end gap-1 h-4 ml-1">
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+          </div>
+        </button>
+        <audio id="bg-music" src="music/One Direction - 18 (Audio)(mp3j.cc).mp3" loop preload="auto"></audio>
+      </div>
       </hgroup>
 
       <!-- ================= SECCIÓN: BAÚL DE RECUERDOS (FOTOS) ================= -->
@@ -230,23 +248,6 @@
         </div>
       </section>
 
-      <!-- Botón Reproductor de Música con Ecualizador Animado -->
-      <div data-aos="fade-up" data-aos-duration="1200" class="mt-4 relative z-10">
-        <button id="music-btn" type="button"
-          class="px-7 py-3 bg-[#0a0e17] hover:bg-[#111726] text-[#D4AF37] border border-[#D4AF37]/35 transition-all text-xs tracking-[0.2em] uppercase font-semibold flex items-center gap-3 cursor-pointer shadow-lg active:scale-95">
-          <i data-lucide="music" class="w-4 h-4 text-[#D4AF37]"></i>
-          <span id="music-btn-text">Reproducir Música</span>
-
-          <!-- Contenedor del Ecualizador Animado -->
-          <div id="equalizer" class="flex items-end gap-1 h-4 ml-1">
-            <div class="eq-bar"></div>
-            <div class="eq-bar"></div>
-            <div class="eq-bar"></div>
-            <div class="eq-bar"></div>
-          </div>
-        </button>
-        <audio id="bg-music" src="music/One Direction - 18 (Audio)(mp3j.cc).mp3" loop preload="auto"></audio>
-      </div>
 
       <!-- Flecha de Desplazamiento -->
       <div class="absolute bottom-6 text-[#D4AF37]/50 animate-float z-10">
