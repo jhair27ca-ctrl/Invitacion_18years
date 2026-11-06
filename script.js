@@ -1,21 +1,26 @@
 // BASE DE DATOS PARA LAS INVITACIONES
 const SUPABASE_URL = "https://faordzxwqrrusaxjqike.supabase.co";
 const SUPABASE_KEY = "sb_publishable_Os62BAjsb3EWOqOJY4u_MQ_rWVyQN5Q";
-supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // 1. Configuración de la Fecha del Evento (31 de Diciembre de 2026, 10:00 PM)
 const partyDate = new Date(2026, 11, 31, 22, 0, 0).getTime();
 
 // 2. Lógica de la Cuenta Regresiva
 function updateCountdown() {
-  const now = new Date().getTime();
+  const now = Date.now();
   const difference = partyDate - now;
 
+  const daysEl = document.getElementById('days');
+  const hoursEl = document.getElementById('hours');
+  const minutesEl = document.getElementById('minutes');
+  const secondsEl = document.getElementById('seconds');
+
   if (difference <= 0) {
-    document.getElementById('days').innerText = "0";
-    document.getElementById('hours').innerText = "00";
-    document.getElementById('minutes').innerText = "00";
-    document.getElementById('seconds').innerText = "00";
+    if (daysEl) daysEl.innerText = "0";
+    if (hoursEl) hoursEl.innerText = "00";
+    if (minutesEl) minutesEl.innerText = "00";
+    if (secondsEl) secondsEl.innerText = "00";
     return;
   }
 
@@ -23,11 +28,6 @@ function updateCountdown() {
   const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-  const daysEl = document.getElementById('days');
-  const hoursEl = document.getElementById('hours');
-  const minutesEl = document.getElementById('minutes');
-  const secondsEl = document.getElementById('seconds');
 
   if (daysEl) daysEl.innerText = days;
   if (hoursEl) hoursEl.innerText = String(hours).padStart(2, '0');
@@ -49,7 +49,6 @@ document.addEventListener("DOMContentLoaded", async function () {
   const rsvpSuccess = document.getElementById('rsvp-success');
 
   if (!codigoInvitado) {
-    // Si no hay parámetro en la URL
     if (rsvpContainer) {
       rsvpContainer.innerHTML = `
         <div class="p-6 bg-[#05070c] border border-[#D4AF37]/40 text-center space-y-4 my-4">
@@ -68,8 +67,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   try {
-    // Consultar a Supabase el código del invitado
-    const { data, error } = await supabase
+    const { data, error } = await supabaseClient
       .from('invitados')
       .select('*')
       .eq('codigo', codigoInvitado.toLowerCase())
@@ -93,7 +91,6 @@ document.addEventListener("DOMContentLoaded", async function () {
       return;
     }
 
-    // Verificar si la invitación ya fue utilizada/confirmada en la BD
     if (data.estado === 'Confirmado') {
       if (rsvpContainer) {
         rsvpContainer.innerHTML = `
@@ -112,7 +109,6 @@ document.addEventListener("DOMContentLoaded", async function () {
       return;
     }
 
-    // Si todo está bien, rellenar el input con el nombre oficial de la BD
     if (nameInput) {
       nameInput.value = data.nombre;
       nameInput.readOnly = true;
@@ -127,18 +123,14 @@ document.addEventListener("DOMContentLoaded", async function () {
         const selectedGuest = document.querySelector('input[name="guests"]:checked');
         const count = selectedGuest ? selectedGuest.value : "0";
 
-        let text = "";
-        if (count === "0") {
-          text = `¡Hola César! Soy ${data.nombre} y confirmo mi asistencia a tus 18 años. Iré solo(a). ¡Nos vemos el 31!`;
-        } else {
-          text = `¡Hola César! Soy ${data.nombre} y confirmo mi asistencia a tus 18 años. Asistiré con ${count} acompañante(s). ¡Nos vemos el 31!`;
-        }
+        const text = count === "0"
+          ? `¡Hola César! Soy ${data.nombre} y confirmo mi asistencia a tus 18 años. Iré solo(a). ¡Nos vemos el 31!`
+          : `¡Hola César! Soy ${data.nombre} y confirmo mi asistencia a tus 18 años. Asistiré con ${count} acompañante(s). ¡Nos vemos el 31!`;
 
         const phone = "51981995393";
         const message = encodeURIComponent(text);
 
-        // Actualizar el estado en Supabase a 'Confirmado'
-        const { error: updateError } = await supabase
+        const { error: updateError } = await supabaseClient
           .from('invitados')
           .update({
             estado: 'Confirmado',
@@ -152,7 +144,6 @@ document.addEventListener("DOMContentLoaded", async function () {
           return;
         }
 
-        // Lanzar confeti dorado
         if (typeof confetti === 'function') {
           confetti({
             particleCount: 120,
@@ -162,7 +153,6 @@ document.addEventListener("DOMContentLoaded", async function () {
           });
         }
 
-        // Ocultar formulario, mostrar éxito y abrir WhatsApp
         setTimeout(() => {
           if (rsvpContainer) rsvpContainer.style.display = 'none';
           if (rsvpSuccess) rsvpSuccess.style.display = 'block';
@@ -217,9 +207,7 @@ if (envelopeWrapper) {
       envelopeHint.innerText = "✨ Toca para cerrar el sobre";
 
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(yapeNumber).then(() => {
-          showCopyFeedback();
-        }).catch(err => {
+        navigator.clipboard.writeText(yapeNumber).then(showCopyFeedback).catch(err => {
           console.error("Error al copiar al portapapeles: ", err);
         });
       } else {
