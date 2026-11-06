@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis 18 Años | César Jhair</title>
+  
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- 1. CDN Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- 2. Tipografías Luxury: Cinzel (Titulares) + Plus Jakarta Sans (Cuerpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- 3. AOS (Animate On Scroll) CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <!-- 4. Lucide Icons (Íconos Vectoriales) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- 5. Canvas Confetti (Librería de Confeti) -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <!-- 6. Tu Hoja de Estilos Personalizada -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body
+  class="bg-[#0d1321] text-slate-200 min-h-screen antialiased selection:bg-[#D4AF37] selection:text-slate-950 relative overflow-x-hidden">
+
+  <!-- Fondo de Luz Ambiental Minimalista -->
+  <div class="fixed inset-0 pointer-events-none z-0">
+    <div
+      class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[#D4AF37]/5 rounded-full blur-[180px]">
+    </div>
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[180px]"></div>
+  </div>
+
+  <div class="relative z-10">
+
+    <!-- ================= 1. SECCIÓN PRINCIPAL (HERO) CON ARCO DE GLOBOS TIPO GALA Y ESTRELLAS DESTACADAS ================= -->
+    <header
+      class="min-h-screen flex flex-col justify-center items-center text-center px-6 py-20 relative border-b border-[#D4AF37]/20 overflow-hidden">
+
+      <!-- ARCO COMPLETO DE GLOBOS + ESTRELLAS LUXURY -->
+      <div class="absolute top-0 left-0 right-0 h-80 pointer-events-none overflow-hidden z-0">
+
+        <!-- --- ESTRELLAS DE GALA PERSONALIZADAS (VECTORIALES Y DESTACADAS) --- -->
+        <!-- Estrella Grande 8 Puntas (Izquierda) -->
+        <svg
+          class="absolute top-16 left-[12%] w-8 h-8 text-[#FFF1B0] drop-shadow-[0_0_12px_rgba(255,241,176,0.9)] animate-pulse"
+          viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
+        </svg>
+
+        <!-- Estrella Elegante 4 Puntas (Centro-Izquierda) -->
+        <svg
+          class="absolute top-8 left-[32%] w-10 h-10 text-[#D4AF37] drop-shadow-[0_0_15px_rgba(212,175,55,0.8)] animate-pulse"
+          style="animation-delay: 0.5s;" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2L13.8 10.2L22 12L13.8 13.8L12 22L10.2 13.8L2 12L10.2 10.2L12 2Z" />
+        </svg>
+
+        <!-- Estrella Destacada Grande (Centro) -->
+        <svg
+          class="absolute top-12 left-[48%] -translate-x-1/2 w-12 h-12 text-[#FFF1B0] drop-shadow-[0_0_20px_rgba(255,241,176,1)] animate-pulse"
+          style="animation-delay: 1.2s;" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z" />
+        </svg>
+
+        <!-- Estrella Elegante 4 Puntas (Centro-Derecha) -->
+        <svg
+          class="absolute top-6 right-[30%] w-9 h-9 text-[#D4AF37] drop-shadow-[0_0_15px_rgba(212,175,55,0.8)] animate-pulse"
+          style="animation-delay: 0.8s;" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2L13.8 10.2L22 12L13.8 13.8L12 22L10.2 13.8L2 12L10.2 10.2L12 2Z" />
+        </svg>
+
+        <!-- Estrella Grande 8 Puntas (Derecha) -->
+        <svg
+          class="absolute top-18 right-[10%] w-8 h-8 text-[#FFF1B0] drop-shadow-[0_0_12px_rgba(255,241,176,0.9)] animate-pulse"
+          style="animation-delay: 0.3s;" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
+        </svg>
+
+        <!-- Destellos Secundarios Laterales -->
+        <svg
+          class="absolute top-36 left-[5%] w-6 h-6 text-[#D4AF37] drop-shadow-[0_0_10px_rgba(212,175,55,0.6)] animate-pulse"
+          style="animation-delay: 1.5s;" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2L13.8 10.2L22 12L13.8 13.8L12 22L10.2 13.8L2 12L10.2 10.2L12 2Z" />
+        </svg>
+        <svg
+          class="absolute top-40 right-[6%] w-7 h-7 text-[#FFF1B0] drop-shadow-[0_0_10px_rgba(255,241,176,0.8)] animate-pulse"
+          style="animation-delay: 0.7s;" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
+        </svg>
+
+
+        <!-- --- GUIRNALDA DENSA Y ORGANICA DE GLOBOS (ARCO SUPERIOR) --- -->
+        <div class="w-full h-full relative opacity-90">
+
+          <!-- LADO IZQUIERDO: Cascada y Esquina -->
+          <div
+            class="absolute -top-4 -left-4 w-16 h-22 sm:w-20 sm:h-28 bg-gradient-to-br from-[#FFF1B0] via-[#D4AF37] to-[#8C6D14] rounded-[50%_50%_50%_50%/40%_40%_60%_60%] shadow-[0_0_25px_rgba(212,175,55,0.7)] animate-float">
+          </div>
+          <div
+            class="absolute top-2 left-8 sm:left-12 w-20 h-28 sm:w-24 sm:h-34 bg-gradient-to-br from-[#3B82F6] via-[#1E3A8A] to-[#05070c] border border-[#D4AF37]/50 rounded-[50%_50%_50%_50%/40%_40%_60%_60%] shadow-[0_0_30px_rgba(30,58,138,0.9)] animate-float"
+            style="animation-delay: 0.3s;"></div>
+          <div
+            class="absolute -top-2 left-24 sm:left-32 w-14 h-20 sm:w-18 sm:h-24 bg-gradient-to-br from-[#E5C158] to-[#AA7C11] rounded-[50%_50%_50%_50%/40%_40%_60%_60%] shadow-[0_0_20px_rgba(212,175,55,0.6)] animate-float"
+            style="animation-delay: 0.7s;"></div>
+          <div
+            class="absolute top-10 left-36 sm:left-48 w-16 h-22 sm:w-20 sm:h-28 bg-gradient-to-br from-[#1D4ED8] via-[#0F172A] to-[#05070c] border border-[#D4AF37]/40 rounded-[50%_50%_50%_50%/40%_40%_60%_60%] shadow-[0_0_25px_rgba(30,58,138,0.8)] animate-float"
+            style="animation-delay: 1.1s;"></div>
+          <div
+            class="absolute top-28 left-2 sm:left-6 w-16 h-22 sm:w-20 sm:h-28 bg-gradient-to-br from-[#FFF1B0] via-[#D4AF37] to-[#AA7C11] rounded-[50%_50%_50%_50%/40%_40%_60%_60%] shadow-[0_0_20px_rgba(212,175,55,0.6)] animate-float"
+            style="animation-delay: 0.5s;"></div>
+          <div
+            class="absolute top-44 left-10 sm:left-16 w-13 h-18 sm:w-16 sm:h-22 bg-gradient-to-br from-[#2563EB] via-[#1E3A8A] to-[#0A0E17] border border-[#D4AF37]/40 rounded-[50%_50%_50%_50%/40%_40%_60%_60%] shadow-[0_0_22px_rgba(37,99,235,0.7)] animate-float"
+            style="animation-delay: 1.4s;"></div>
+
+          <!-- PARTE CENTRAL DEL ARCO (PUENTE SUPERIOR) -->
+          <div
+            class="absolute -top-3 left-[32%] w-15 h-20 sm:w-18 sm:h-26 bg-gradient-to-br from-[#FFF1B0] via-[#D4AF37] to-[#8C6D14] rounded-[50%_50%_50%_50%/40%_40%_60%_60%] shadow-[0_0_22px_rgba(212,175,55,0.6)] animate-float"
+            style="animation-delay: 0.4s;"></div>
+          <div
+            class="absolute top-1 left-[40%] w-18 h-24 sm:w-22 sm:h-30 bg-gradient-to-br from-[#1D4ED8] via-[#0F172A] to-[#05070c] border border-[#D4AF37]/50 rounded-[50%_50%_50%_50%/40%_40%_60%_60%] shadow-[0_0_30px_rgba(30,58,138,0.9)] animate-float"
+            style="animation-delay: 0.9s;"></div>
+          <div
+            class="absolute -top-4 left-[50%] -translate-x-1/2 w-16 h-22 sm:w-20 sm:h-28 bg-gradient-to-br from-[#E5C158] to-[#AA7C11] rounded-[50%_50%_50%_50%/40%_40%_60%_60%] shadow-[0_0_25px_rgba(212,175,55,0.7)] animate-float"
+            style="animation-delay: 0.2s;"></div>
+          <div
+            class="absolute top-2 right-[40%] w-17 h-23 sm:w-20 sm:h-28 bg-gradient-to-br from-[#3B82F6] via-[#1E3A8A] to-[#05070c] border border-[#D4AF37]/40 rounded-[50%_50%_50%_50%/40%_40%_60%_60%] shadow-[0_0_25px_rgba(30,58,138,0.8)] animate-float"
+            style="animation-delay: 1.2s;"></div>
+          <div
+            class="absolute -top-2 right-[32%] w-14 h-19 sm:w-17 sm:h-24 bg-gradient-to-br from-[#FFF1B0] via-[#D4AF37] to-[#8C6D14] rounded-[50%_50%_50%_50%/40%_40%_60%_60%] shadow-[0_0_20px_rgba(212,175,55,0.6)] animate-float"
+            style="animation-delay: 0.6s;"></div>
+
+          <!-- LADO DERECHO: Cascada y Esquina -->
+          <div
+            class="absolute -top-4 -right-4 w-16 h-22 sm:w-20 sm:h-28 bg-gradient-to-br from-[#FFF1B0] via-[#D4AF37] to-[#8C6D14] rounded-[50%_50%_50%_50%/40%_40%_60%_60%] shadow-[0_0_25px_rgba(212,175,55,0.7)] animate-float"
+            style="animation-delay: 0.1s;"></div>
+          <div
+            class="absolute top-2 right-8 sm:right-12 w-20 h-28 sm:w-24 sm:h-34 bg-gradient-to-br from-[#3B82F6] via-[#1E3A8A] to-[#05070c] border border-[#D4AF37]/50 rounded-[50%_50%_50%_50%/40%_40%_60%_60%] shadow-[0_0_30px_rgba(30,58,138,0.9)] animate-float"
+            style="animation-delay: 0.8s;"></div>
+          <div
+            class="absolute -top-2 right-24 sm:right-32 w-14 h-20 sm:w-18 sm:h-24 bg-gradient-to-br from-[#E5C158] to-[#AA7C11] rounded-[50%_50%_50%_50%/40%_40%_60%_60%] shadow-[0_0_20px_rgba(212,175,55,0.6)] animate-float"
+            style="animation-delay: 0.5s;"></div>
+          <div
+            class="absolute top-10 right-36 sm:right-48 w-16 h-22 sm:w-20 sm:h-28 bg-gradient-to-br from-[#1D4ED8] via-[#0F172A] to-[#05070c] border border-[#D4AF37]/40 rounded-[50%_50%_50%_50%/40%_40%_60%_60%] shadow-[0_0_25px_rgba(30,58,138,0.8)] animate-float"
+            style="animation-delay: 1.0s;"></div>
+          <div
+            class="absolute top-28 right-2 sm:right-6 w-16 h-22 sm:w-20 sm:h-28 bg-gradient-to-br from-[#FFF1B0] via-[#D4AF37] to-[#AA7C11] rounded-[50%_50%_50%_50%/40%_40%_60%_60%] shadow-[0_0_20px_rgba(212,175,55,0.6)] animate-float"
+            style="animation-delay: 0.3s;"></div>
+          <div
+            class="absolute top-44 right-10 sm:right-16 w-13 h-18 sm:w-16 sm:h-22 bg-gradient-to-br from-[#2563EB] via-[#1E3A8A] to-[#0A0E17] border border-[#D4AF37]/40 rounded-[50%_50%_50%_50%/40%_40%_60%_60%] shadow-[0_0_22px_rgba(37,99,235,0.7)] animate-float"
+            style="animation-delay: 1.3s;"></div>
+
+        </div>
+      </div>
+
+      <!-- Marco Finísimo Superior -->
+      <div
+        class="absolute top-8 left-8 right-8 bottom-8 border border-[#D4AF37]/15 pointer-events-none hidden md:block z-10">
+      </div>
+
+      <div data-aos="fade-down" data-aos-duration="1200" class="space-y-3 relative z-10 mt-14 sm:mt-12">
+        <p class="text-[#D4AF37] text-xs sm:text-sm font-medium tracking-[0.35em] uppercase">
+          XVIII • DICIEMBRE XXXI
+        </p>
+        <p class="text-slate-400 text-xs tracking-[0.2em] uppercase">
+          Te invito a celebrar conmigo
+        </p>
+      </div>
+
+      <hgroup data-aos="zoom-in" data-aos-duration="1400" class="my-8 flex flex-col items-center relative z-10">
+        <!-- Número 18 Emblemático con Cuadro Elegante -->
+        <figure
+          class="w-24 h-24 sm:w-28 sm:h-28 border border-[#D4AF37]/40 bg-[#0a0e17]/80 flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(212,175,55,0.1)] gold-pulse">
+          <span class="text-4xl sm:text-5xl font-extrabold gold-gradient-text">18</span>
+        </figure>
+
+        <!-- Título Principal -->
+        <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-wider text-white uppercase drop-shadow-sm">
+          Mis 18 Años
+        </h1>
+
+        <div class="w-16 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent my-4"></div>
+
+        <!-- Subtítulo -->
+        <p class="text-2xl sm:text-3xl text-[#D4AF37] font-serif-luxury tracking-widest uppercase">
+          César Jhair
+        </p>
+      </hgroup>
+
+      <!-- ================= LÍNEA DE TIEMPO (MI EVOLUCIÓN - REDISEÑO PROFESIONAL) ================= -->
+      <section data-aos="fade-up" data-aos-duration="1000" aria-labelledby="timeline-heading"
+        class="text-center space-y-8 my-6 relative z-10 max-w-4xl mx-auto w-full px-6">
+        <div class="space-y-1">
+          <h2 id="timeline-heading" class="text-xs font-semibold text-[#D4AF37] uppercase tracking-[0.3em]">
+            A través del tiempo
+          </h2>
+          <p class="text-xl sm:text-2xl font-extrabold gold-gradient-text uppercase font-serif-luxury tracking-wider">
+            Mi Evolución
+          </p>
+        </div>
+
+        <!-- Contenedor general de la Línea de Tiempo Profesional -->
+        <div class="relative max-w-3xl mx-auto pt-4 pb-2">
+
+          <!-- Línea horizontal de conexión (Solo visible en pantallas medianas o superiores) -->
+          <div
+            class="hidden md:block absolute top-[52px] left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-[#D4AF37]/20 via-[#D4AF37] to-[#D4AF37]/21 z-0 shadow-[0_0_8px_rgba(212,175,55,0.5)]">
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+
+            <!-- Etapa 1: Bebé -->
+            <div class="flex flex-col items-center text-center space-y-3 group">
+              <div class="relative">
+                <!-- Anillo de brillo exterior animado -->
+                <div
+                  class="absolute -inset-1 rounded-full bg-gradient-to-r from-[#D4AF37] to-blue-600 opacity-40 blur-sm group-hover:opacity-75 transition duration-500">
+                </div>
+                <!-- Contenedor circular de la foto -->
+                <div
+                  class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-[#D4AF37] overflow-hidden bg-[#0a0e17] flex items-center justify-center relative shadow-xl">
+                  <img src="img/Retrato vintage del niño en banco dorado.png" alt="César de Bebé"
+                    class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div
+                    class="absolute inset-0 flex flex-col items-center justify-center text-[#D4AF37] text-[10px] uppercase tracking-wider p-2 bg-[#0a0e17]"
+                    style="display: none;">
+                    <i data-lucide="image" class="w-5 h-5 mb-1"></i>
+                    <span>Bebé</span>
+                  </div>
+                </div>
+                <!-- Pequeño punto indicador sobre la línea -->
+                <div
+                  class="hidden md:block absolute -top-[21px] left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#D4AF37] shadow-[0_0_10px_#D4AF37] border-2 border-[#0d1321]">
+                </div>
+              </div>
+              <div class="space-y-0.5">
+                <span
+                  class="text-[10px] font-bold text-[#D4AF37] tracking-[0.2em] uppercase bg-[#D4AF37]/10 px-2.5 py-0.5 rounded-full border border-[#D4AF37]/30">2008</span>
+                <h3 class="text-base font-bold text-slate-100 uppercase tracking-wide font-serif-luxury mt-1">Bebé</h3>
+              </div>
+            </div>
+
+            <!-- Etapa 2: Niño -->
+            <div class="flex flex-col items-center text-center space-y-3 group">
+              <div class="relative">
+                <div
+                  class="absolute -inset-1 rounded-full bg-gradient-to-r from-[#D4AF37] to-blue-600 opacity-40 blur-sm group-hover:opacity-75 transition duration-500">
+                </div>
+                <div
+                  class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-[#D4AF37] overflow-hidden bg-[#0a0e17] flex items-center justify-center relative shadow-xl">
+                  <img src="img/Retrato escolar vintage en banco dorado.png" alt="César de Niño"
+                    class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div
+                    class="absolute inset-0 flex flex-col items-center justify-center text-[#D4AF37] text-[10px] uppercase tracking-wider p-2 bg-[#0a0e17]"
+                    style="display: none;">
+                    <i data-lucide="image" class="w-5 h-5 mb-1"></i>
+                    <span>Niño</span>
+                  </div>
+                </div>
+                <div
+                  class="hidden md:block absolute -top-[21px] left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#D4AF37] shadow-[0_0_10px_#D4AF37] border-2 border-[#0d1321]">
+                </div>
+              </div>
+              <div class="space-y-0.5">
+                <span
+                  class="text-[10px] font-bold text-[#D4AF37] tracking-[0.2em] uppercase bg-[#D4AF37]/10 px-2.5 py-0.5 rounded-full border border-[#D4AF37]/30">Infancia</span>
+                <h3 class="text-base font-bold text-slate-100 uppercase tracking-wide font-serif-luxury mt-1">Niño</h3>
+              </div>
+            </div>
+
+            <!-- Etapa 3: Actual -->
+            <div class="flex flex-col items-center text-center space-y-3 group">
+              <div class="relative">
+                <div
+                  class="absolute -inset-1 rounded-full bg-gradient-to-r from-[#D4AF37] to-blue-600 opacity-40 blur-sm group-hover:opacity-75 transition duration-500">
+                </div>
+                <div
+                  class="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-[#D4AF37] overflow-hidden bg-[#0a0e17] flex items-center justify-center relative shadow-xl">
+                  <img src="img/Retrato vintage en banco dorado.png" alt="César Actual"
+                    class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                  <div
+                    class="absolute inset-0 flex flex-col items-center justify-center text-[#D4AF37] text-[10px] uppercase tracking-wider p-2 bg-[#0a0e17]"
+                    style="display: none;">
+                    <i data-lucide="image" class="w-5 h-5 mb-1"></i>
+                    <span>Actual</span>
+                  </div>
+                </div>
+                <div
+                  class="hidden md:block absolute -top-[21px] left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#D4AF37] shadow-[0_0_10px_#D4AF37] border-2 border-[#0d1321]">
+                </div>
+              </div>
+              <div class="space-y-0.5">
+                <span
+                  class="text-[10px] font-bold text-[#D4AF37] tracking-[0.2em] uppercase bg-[#D4AF37]/10 px-2.5 py-0.5 rounded-full border border-[#D4AF37]/30">2026</span>
+                <h3 class="text-base font-bold text-slate-100 uppercase tracking-wide font-serif-luxury mt-1">Actual
+                </h3>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Botón Reproductor de Música con Ecualizador Animado -->
+      <div data-aos="fade-up" data-aos-duration="1200" class="mt-4 relative z-10">
+        <button id="music-btn" type="button"
+          class="px-7 py-3 bg-[#0a0e17] hover:bg-[#111726] text-[#D4AF37] border border-[#D4AF37]/35 transition-all text-xs tracking-[0.2em] uppercase font-semibold flex items-center gap-3 cursor-pointer shadow-lg active:scale-95">
+          <i data-lucide="music" class="w-4 h-4 text-[#D4AF37]"></i>
+          <span id="music-btn-text">Reproducir Música</span>
+
+          <!-- Contenedor del Ecualizador Animado -->
+          <div id="equalizer" class="flex items-end gap-1 h-4 ml-1">
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+          </div>
+        </button>
+        <audio id="bg-music" src="music/One Direction - 18 (Audio)(mp3j.cc).mp3" loop preload="auto"></audio>
+      </div>
+
+      <!-- Flecha de Desplazamiento -->
+      <div class="absolute bottom-6 text-[#D4AF37]/50 animate-float z-10">
+        <i data-lucide="chevron-down" class="w-6 h-6"></i>
+      </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-20 space-y-20">
+
+      <!-- ================= SECCIÓN: PADRES Y PADRINOS ================= -->
+      <section data-aos="fade-up" data-aos-duration="1000" aria-labelledby="family-heading" class="space-y-8">
+        <h2 id="family-heading" class="sr-only">Mis Padres y Padrinos</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+          <!-- Tarjeta Mis Padres -->
+          <article data-aos="fade-right" data-aos-duration="1000"
+            class="luxury-card p-8 text-center flex flex-col items-center justify-center space-y-5">
+            <div class="p-3 border border-[#D4AF37]/30 bg-[#05070c] text-[#D4AF37]">
+              <i data-lucide="heart" class="w-6 h-6"></i>
+            </div>
+
+            <div class="space-y-1">
+              <h3 class="text-xl font-bold text-[#D4AF37] uppercase tracking-wider">Mis Padres</h3>
+              <p class="text-slate-400 text-xs tracking-widest uppercase">Con la bendición y apoyo de</p>
+            </div>
+
+            <div class="w-12 h-[1px] bg-[#D4AF37]/30 my-1"></div>
+
+            <div class="space-y-2">
+              <p class="text-slate-100 font-serif-luxury text-lg tracking-wide">Rosario Alderete Escajadillo</p>
+              <p class="text-slate-100 font-serif-luxury text-lg tracking-wide">Julio César Castilla Vivanco</p>
+            </div>
+          </article>
+
+          <!-- Tarjeta Mis Padrinos -->
+          <article data-aos="fade-left" data-aos-duration="1000"
+            class="luxury-card p-8 text-center flex flex-col items-center justify-center space-y-5">
+            <div class="p-3 border border-[#D4AF37]/30 bg-[#05070c] text-[#D4AF37]">
+              <i data-lucide="sparkles" class="w-6 h-6"></i>
+            </div>
+
+            <div class="space-y-1">
+              <p class="text-slate-400 text-xs tracking-widest uppercase">Guías en esta nueva etapa</p>
+              <h3 class="text-xl font-bold text-[#D4AF37] uppercase tracking-wider">Mis Padrinos</h3>
+            </div>
+
+            <div class="w-12 h-[1px] bg-[#D4AF37]/30 my-1"></div>
+
+            <div class="space-y-2">
+              <p class="text-slate-100 font-serif-luxury text-lg tracking-wide">Milagros Vivanco Munayco</p>
+              <p class="text-slate-100 font-serif-luxury text-lg tracking-wide">Jesús Daniel Crisóstomo Guerra</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ================= 2. CUENTA REGRESIVA ================= -->
+      <section data-aos="fade-up" data-aos-duration="1000" aria-labelledby="countdown-heading"
+        class="luxury-card p-8 sm:p-12 text-center">
+        <p id="countdown-heading" class="text-[#D4AF37] text-xs font-semibold uppercase tracking-[0.3em] mb-8">
+          Cuenta Regresiva para la Recepción
+        </p>
+
+        <aside aria-label="Tiempo restante para el evento"
+          class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto">
+          <time datetime="P0D"
+            class="bg-[#05070c]/90 border border-slate-800 p-5 flex flex-col items-center justify-center">
+            <span id="days" class="text-3xl sm:text-5xl font-extrabold gold-gradient-text font-serif-luxury">0</span>
+            <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-[0.2em] mt-2">Días</span>
+          </time>
+          <time datetime="P0H"
+            class="bg-[#05070c]/90 border border-slate-800 p-5 flex flex-col items-center justify-center">
+            <span id="hours" class="text-3xl sm:text-5xl font-extrabold gold-gradient-text font-serif-luxury">00</span>
+            <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-[0.2em] mt-2">Horas</span>
+          </time>
+          <time datetime="P0M"
+            class="bg-[#05070c]/90 border border-slate-800 p-5 flex flex-col items-center justify-center">
+            <span id="minutes"
+              class="text-3xl sm:text-5xl font-extrabold gold-gradient-text font-serif-luxury">00</span>
+            <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-[0.2em] mt-2">Minutos</span>
+          </time>
+          <time datetime="P0S"
+            class="bg-[#05070c]/90 border border-slate-800 p-5 flex flex-col items-center justify-center">
+            <span id="seconds"
+              class="text-3xl sm:text-5xl font-extrabold gold-gradient-text font-serif-luxury">00</span>
+            <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-[0.2em] mt-2">Segundos</span>
+          </time>
+        </aside>
+      </section>
+
+      <!-- ================= 3. RECEPCIÓN Y CÓDIGO DE VESTIMENTA (LADO A LADO) ================= -->
+      <section aria-labelledby="events-heading" class="space-y-8">
+        <h2 id="events-heading" class="sr-only">Recepción y Código de Vestimenta</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- Tarjeta 2: Recepción / Evento Principal -->
+          <article data-aos="fade-right" data-aos-duration="1000"
+            class="luxury-card p-8 text-center flex flex-col items-center justify-between space-y-6 border-[#D4AF37]/40 shadow-[0_0_25px_rgba(212,175,55,0.08)]">
+            <div class="space-y-4 flex flex-col items-center w-full">
+              <div class="p-3 border border-[#D4AF37]/50 bg-[#05070c] text-[#D4AF37]">
+                <i data-lucide="party-popper" class="w-6 h-6"></i>
+              </div>
+
+              <div class="space-y-1">
+                <h3 class="text-xl font-bold text-[#D4AF37] uppercase tracking-wider">Recepción</h3>
+                <span
+                  class="inline-block text-[10px] text-[#D4AF37] border border-[#D4AF37]/40 bg-[#05070c] px-3 py-0.5 uppercase tracking-widest font-semibold mt-1">
+                  Evento Principal
+                </span>
+              </div>
+
+              <div class="w-12 h-[1px] bg-[#D4AF37]/30 my-1"></div>
+
+              <!-- Fecha y Hora -->
+              <div class="space-y-1">
+                <p class="text-slate-100 font-medium text-base"><time datetime="2026-12-31T22:00">Jueves, 31 de
+                    Diciembre</time></p>
+                <p class="text-slate-300 font-semibold text-xs tracking-wider uppercase">Hora: <time datetime="22:00">10:00
+                    PM</time></p>
+              </div>
+
+              <!-- Dirección del Local -->
+              <div class="pt-2 text-slate-300 text-xs tracking-wide">
+                <p class="font-semibold text-slate-200">Local de Recepción</p>
+                <address class="not-italic text-slate-400">Sunampe, Chincha, Ica</address>
+              </div>
+            </div>
+
+            <!-- Botones de Acción (Maps y Agendar Dorado) -->
+            <div class="grid grid-cols-2 gap-2 w-full mt-4">
+              <a href="https://maps.app.goo.gl/krshLaDEU4M59i249" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 bg-[#05070c] hover:bg-slate-900 text-[#D4AF37] border border-[#D4AF37]/40 text-[11px] tracking-wider uppercase transition-all shadow-md active:scale-95">
+                <span>Maps</span>
+                <i data-lucide="external-link" class="w-3 h-3 text-[#D4AF37]"></i>
+              </a>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+18+A%C3%B1os+%7C+C%C3%A9sar+Jhair&dates=20261231T220000/20270101T040000&details=Te+espero+para+celebrar+juntos+mis+18+a%C3%B1os.+%C2%A1No+faltes%21&location=Sunampe,+Chincha,+Ica"
+                target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 gold-gradient-bg text-slate-950 font-bold text-[11px] tracking-wider uppercase transition-all shadow-md active:scale-95">
+                <span>Agendar</span>
+                <i data-lucide="calendar-plus" class="w-3 h-3 text-slate-950"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- ================= 4. CÓDIGO DE VESTIMENTA ================= -->
+          <article data-aos="fade-left" data-aos-duration="1000" aria-labelledby="info-heading"
+            class="luxury-card p-8 text-center flex flex-col items-center justify-between space-y-6">
+            <div class="space-y-4 flex flex-col items-center w-full">
+              <div class="p-3 border border-[#D4AF37]/30 bg-[#05070c] text-[#D4AF37]">
+                <i data-lucide="shirt" class="w-6 h-6"></i>
+              </div>
+              <div class="space-y-1">
+                <h3 id="info-heading" class="text-xl font-bold text-[#D4AF37] uppercase tracking-wider">Código de Vestimenta</h3>
+                <span
+                  class="inline-block text-[10px] text-[#D4AF37] border border-[#D4AF37]/40 bg-[#05070c] px-3 py-0.5 uppercase tracking-widest font-semibold mt-1">
+                  Etiqueta
+                </span>
+              </div>
+              <div class="w-12 h-[1px] bg-[#D4AF37]/30 my-1"></div>
+              <div class="space-y-2 py-4">
+                <p class="text-slate-100 font-serif-luxury text-2xl tracking-widest uppercase font-bold text-[#D4AF37]">ELEGANTE</p>
+                <p class="text-slate-400 text-xs tracking-wider">Traje formal / Vestido de gala</p>
+              </div>
+            </div>
+            <div class="w-full pt-4">
+              <div class="text-[10px] text-[#D4AF37]/70 uppercase tracking-widest font-semibold">¡Su presencia es un honor!</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================= 5. SOBRE DIGITAL INTERACTIVO (OBSEQUIOS) ================= -->
+      <section data-aos="fade-up" data-aos-duration="1000" aria-labelledby="gift-heading" class="text-center space-y-6">
+        <h2 id="gift-heading" class="text-xs font-semibold text-[#D4AF37] uppercase tracking-[0.3em]">
+          Muestra de Afecto & Presentes
+        </h2>
+
+        <div id="envelope-wrapper" class="envelope-wrapper">
+          <div class="envelope-container pt-12 pb-4 px-4">
+            <!-- Solapa 3D del Sobre -->
+            <div class="envelope-flap"></div>
+            <!-- Sello de Cera Dorado -->
+            <div class="envelope-seal font-serif-luxury font-bold text-xs">XVIII</div>
+
+            <!-- Tarjeta desplegable dentro del sobre -->
+            <div class="envelope-card space-y-4">
+              <div
+                class="p-2 border border-[#D4AF37]/30 bg-[#0a0e17] w-10 h-10 mx-auto flex items-center justify-center text-[#D4AF37]">
+                <i data-lucide="gift" class="w-5 h-5"></i>
+              </div>
+
+              <p class="text-xs text-slate-300 tracking-wider uppercase">
+                Tu presencia es mi mejor regalo. Si deseas realizar un presente adicional:
+              </p>
+
+              <div class="p-4 bg-[#0a0e17] border border-slate-800 space-y-2 text-left text-xs relative">
+                <p class="text-[#D4AF37] font-semibold tracking-wider uppercase">Número de Yape</p>
+                <p class="text-slate-300 font-medium flex items-center justify-between">
+                  <span>Número: <span id="yape-number" class="text-slate-100 font-bold">981995393</span></span>
+                  <span id="copy-badge"
+                    class="text-[10px] text-emerald-400 bg-emerald-950/80 border border-emerald-500/40 px-2 py-0.5 rounded opacity-0 transition-opacity">¡Copiado!</span>
+                </p>
+              </div>
+
+              <p id="envelope-hint" class="text-[10px] text-[#D4AF37] tracking-widest uppercase font-semibold">
+                ✨ Toca para abrir el sobre
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 6. CONFIRMACIÓN (RSVP) ================= -->
+      <section data-aos="fade-up" data-aos-duration="1000" aria-labelledby="rsvp-heading"
+        class="luxury-card p-8 sm:p-12 text-center relative">
+        <article>
+          <h3 id="rsvp-heading" class="text-3xl font-extrabold gold-gradient-text uppercase tracking-wider mb-2">
+            Confirmación de Asistencia
+          </h3>
+          <p class="text-slate-400 text-xs tracking-widest uppercase mb-8">
+            Favor de confirmar tu presencia directamente a WhatsApp
+          </p>
+
+          <div id="rsvp-container">
+            <form id="rsvp-form" class="space-y-6 max-w-md mx-auto text-left">
+              <div>
+                <label for="guest-name" class="block text-xs font-semibold text-[#D4AF37] uppercase tracking-widest mb-2">Tu
+                  Nombre
+                  Completo:</label>
+                <input type="text" id="guest-name" placeholder="Ej. César Jhair" required autocomplete="name"
+                  class="w-full px-4 py-3.5 bg-[#05070c] border border-slate-800 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-[#D4AF37] transition-all text-sm">
+              </div>
+
+              <fieldset class="space-y-3">
+                <legend class="text-xs font-semibold text-[#D4AF37] uppercase tracking-widest mb-2">¿Cuántos
+                  acompañantes llevarás?</legend>
+                <div class="grid grid-cols-5 gap-2 sm:gap-3">
+                  <!-- Opción Solo -->
+                  <label
+                    class="flex flex-col items-center justify-center p-3 bg-[#05070c] border border-slate-800 cursor-pointer hover:border-[#D4AF37]/50 has-[:checked]:border-[#D4AF37] has-[:checked]:bg-[#D4AF37]/10 transition-all">
+                    <input type="radio" name="guests" value="0" checked class="accent-[#D4AF37] mb-1">
+                    <span class="text-xs font-bold text-slate-100">Solo</span>
+                  </label>
+                  <!-- Opción 1 -->
+                  <label
+                    class="flex flex-col items-center justify-center p-3 bg-[#05070c] border border-slate-800 cursor-pointer hover:border-[#D4AF37]/50 has-[:checked]:border-[#D4AF37] has-[:checked]:bg-[#D4AF37]/10 transition-all">
+                    <input type="radio" name="guests" value="1" class="accent-[#D4AF37] mb-1">
+                    <span class="text-sm font-bold text-slate-100">1</span>
+                  </label>
+                  <!-- Opción 2 -->
+                  <label
+                    class="flex flex-col items-center justify-center p-3 bg-[#05070c] border border-slate-800 cursor-pointer hover:border-[#D4AF37]/50 has-[:checked]:border-[#D4AF37] has-[:checked]:bg-[#D4AF37]/10 transition-all">
+                    <input type="radio" name="guests" value="2" class="accent-[#D4AF37] mb-1">
+                    <span class="text-sm font-bold text-slate-100">2</span>
+                  </label>
+                  <!-- Opción 3 -->
+                  <label
+                    class="flex flex-col items-center justify-center p-3 bg-[#05070c] border border-slate-800 cursor-pointer hover:border-[#D4AF37]/50 has-[:checked]:border-[#D4AF37] has-[:checked]:bg-[#D4AF37]/10 transition-all">
+                    <input type="radio" name="guests" value="3" class="accent-[#D4AF37] mb-1">
+                    <span class="text-sm font-bold text-slate-100">3</span>
+                  </label>
+                  <!-- Opción 4 -->
+                  <label
+                    class="flex flex-col items-center justify-center p-3 bg-[#05070c] border border-slate-800 cursor-pointer hover:border-[#D4AF37]/50 has-[:checked]:border-[#D4AF37] has-[:checked]:bg-[#D4AF37]/10 transition-all">
+                    <input type="radio" name="guests" value="4" class="accent-[#D4AF37] mb-1">
+                    <span class="text-sm font-bold text-slate-100">4</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <button type="submit"
+                class="w-full py-4 px-6 gold-gradient-bg text-slate-950 font-bold text-xs tracking-[0.2em] uppercase transition-all cursor-pointer shadow-xl active:scale-95 flex items-center justify-center gap-3">
+                <i data-lucide="message-circle" class="w-4 h-4 text-slate-950"></i>
+                <span>Confirmar por WhatsApp</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Mensaje tras confirmar -->
+          <div id="rsvp-success" style="display: none;" class="py-8 space-y-3">
+            <div
+              class="w-12 h-12 border border-emerald-500/50 bg-[#05070c] flex items-center justify-center mx-auto text-emerald-400">
+              <i data-lucide="check" class="w-6 h-6"></i>
+            </div>
+            <p class="text-xl font-bold text-emerald-400 uppercase tracking-wider">Asistencia Registrada</p>
+            <p class="text-xs text-slate-400 tracking-wider uppercase">Gracias por confirmar desde este dispositivo.
+              ¡Nos vemos en la celebración!</p>
+          </div>
+        </article>
+      </section>
+
+    </main>
+
+    <!-- ================= PIE DE PÁGINA ================= -->
+    <footer class="py-12 text-center text-[10px] text-slate-500 tracking-[0.3em] uppercase border-t border-slate-900">
+      <p>CÉSAR JHAIR • XVIII AÑOS • MMVIII - MMXXVI</p>
+    </footer>
+
+  </div>
+
+  <!-- 7. Scripts: AOS + Lucide Initialization -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      duration: 1000
+    });
+    lucide.createIcons();
+  </script>
+  
+  <script src="script.js"></script>
+</body>
+
+</html>
