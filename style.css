@@ -4,7 +4,7 @@
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: #05070c;
+    background-color: #0d1321; /* <- Color de fondo original restaurado */
     color: #e2e8f0;
 }
 
@@ -44,7 +44,7 @@ h3,
    ========================================================================== */
 
 .luxury-card {
-    background: rgba(10, 14, 23, 0.65);
+    background: rgba(10, 14, 23, 0.7);
     border: 1px solid rgba(212, 175, 55, 0.2);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -160,14 +160,14 @@ h3,
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #05070c;
+    color: #0d1321;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
     z-index: 4;
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .envelope-card {
-    background: #05070c;
+    background: #0d1321;
     border: 1px solid rgba(212, 175, 55, 0.4);
     padding: 1.5rem;
     text-align: center;
