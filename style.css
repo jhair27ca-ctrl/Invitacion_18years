@@ -4,7 +4,10 @@
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: #0d1321; /* <- Color de fondo original restaurado */
+    /* Azul noche muy oscuro, profundo y elegante */
+    background-color: #020409;
+    background-image: radial-gradient(circle at 50% 12%, #070e1c 0%, #020409 78%);
+    background-attachment: fixed;
     color: #e2e8f0;
 }
 
@@ -44,7 +47,7 @@ h3,
    ========================================================================== */
 
 .luxury-card {
-    background: rgba(10, 14, 23, 0.7);
+    background: rgba(5, 8, 15, 0.78);
     border: 1px solid rgba(212, 175, 55, 0.2);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -109,8 +112,13 @@ h3,
 }
 
 @keyframes soundWave {
-    0% { height: 4px; }
-    100% { height: 16px; }
+    0% {
+        height: 4px;
+    }
+
+    100% {
+        height: 16px;
+    }
 }
 
 /* ==========================================================================
@@ -127,7 +135,7 @@ h3,
     width: 100%;
     max-width: 380px;
     margin: 0 auto;
-    background: #0a0e17;
+    background: #050810;
     border: 1px solid rgba(212, 175, 55, 0.3);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.85);
     transition: transform 0.4s ease;
@@ -140,7 +148,7 @@ h3,
     left: 0;
     right: 0;
     height: 95px;
-    background: #111726;
+    background: #090e1a;
     border-bottom: 1px solid rgba(212, 175, 55, 0.4);
     clip-path: polygon(0 0, 100% 0, 50% 100%);
     transform-origin: top center;
@@ -160,14 +168,14 @@ h3,
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #0d1321;
+    color: #020409;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
     z-index: 4;
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .envelope-card {
-    background: #0d1321;
+    background: #020409;
     border: 1px solid rgba(212, 175, 55, 0.4);
     padding: 1.5rem;
     text-align: center;
@@ -198,10 +206,13 @@ h3,
    ========================================================================== */
 
 @keyframes goldPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
         border-color: rgba(212, 175, 55, 0.3);
     }
+
     50% {
         box-shadow: 0 0 32px rgba(212, 175, 55, 0.45);
         border-color: rgba(212, 175, 55, 0.65);
@@ -213,8 +224,15 @@ h3,
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-7px); }
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
 }
 
 .animate-float {
