@@ -3,8 +3,8 @@ const SUPABASE_URL = "https://faordzxwqrrusaxjqike.supabase.co";
 const SUPABASE_KEY = "sb_publishable_Os62BAjsb3EWOqOJY4u_MQ_rWVyQN5Q";
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-// 1. Configuración de la Fecha del Evento (31 de Diciembre de 2026, 10:00 PM)
-const partyDate = new Date(2026, 11, 31, 22, 0, 0).getTime();
+// 1. Configuración de la Fecha del Evento (31 de Diciembre de 2026, 21:30 PM)
+const partyDate = new Date(2026, 11, 31, 21, 30, 0).getTime();
 
 // 2. Lógica de la Cuenta Regresiva
 function updateCountdown() {
