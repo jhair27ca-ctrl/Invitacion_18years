@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           return;
         }
 
-        const text = `¡Hola César! Soy ${data.nombre} y confirmo mi asistencia a tus 18 años. Asistiré con ${count} acompañante(s). ¡Nos vemos el 31!`;
+        const text = `¡Hola César! Soy ${data.nombre} y confirmo mi asistencia a tus 18 años. Con pase para ${count} persona(s). ¡Nos vemos el 31!`;
 
         const phone = "51981995393";
         const message = encodeURIComponent(text);
