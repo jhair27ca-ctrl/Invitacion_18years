@@ -133,17 +133,25 @@ document.addEventListener("DOMContentLoaded", async function () {
         const phone = "51981995393";
         const message = encodeURIComponent(text);
 
-        const { error: updateError } = await supabaseClient
+        const { data: updatedGuest, error: updateError } = await supabaseClient
           .from('invitados')
           .update({
             estado: 'Confirmado',
-            acompaniantes: count
+            pases: count
           })
-          .eq('codigo', codigoInvitado.toLowerCase());
+          .eq('codigo', codigoInvitado.toLowerCase())
+          .select('codigo')
+          .maybeSingle();
 
         if (updateError) {
           console.error("Error al actualizar Supabase:", updateError);
           alert("Hubo un error al procesar tu confirmación. Inténtalo de nuevo.");
+          return;
+        }
+
+        if (!updatedGuest) {
+          console.error("Supabase no actualizó ninguna invitación. Revisa las políticas RLS de UPDATE para la tabla invitados.");
+          alert("No se pudo guardar la confirmación. Revisa que tu invitación siga vigente e inténtalo de nuevo.");
           return;
         }
 
