@@ -121,11 +121,14 @@ document.addEventListener("DOMContentLoaded", async function () {
         e.preventDefault();
 
         const selectedGuest = document.querySelector('input[name="guests"]:checked');
-        const count = selectedGuest ? selectedGuest.value : "0";
+        const count = selectedGuest ? selectedGuest.value : "";
 
-        const text = count === "0"
-          ? `¡Hola César! Soy ${data.nombre} y confirmo mi asistencia a tus 18 años. Iré solo(a). ¡Nos vemos el 31!`
-          : `¡Hola César! Soy ${data.nombre} y confirmo mi asistencia a tus 18 años. Asistiré con ${count} acompañante(s). ¡Nos vemos el 31!`;
+        if (!['1', '2', '3', '4'].includes(count)) {
+          alert("Selecciona entre 1 y 4 acompañantes para confirmar.");
+          return;
+        }
+
+        const text = `¡Hola César! Soy ${data.nombre} y confirmo mi asistencia a tus 18 años. Asistiré con ${count} acompañante(s). ¡Nos vemos el 31!`;
 
         const phone = "51981995393";
         const message = encodeURIComponent(text);
