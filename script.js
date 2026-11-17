@@ -123,8 +123,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         const selectedGuest = document.querySelector('input[name="guests"]:checked');
         const count = selectedGuest ? selectedGuest.value : "";
 
-        if (!['1', '2', '3', '4'].includes(count)) {
-          alert("Selecciona entre 1 y 4 acompañantes para confirmar.");
+        if (!['1', '2', '3', '4', '5'].includes(count)) {
+          alert("Selecciona entre 1 y 5 personas para confirmar.");
           return;
         }
 
